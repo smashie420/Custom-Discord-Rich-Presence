@@ -27,13 +27,13 @@ namespace Custom_Discord_Rich_Presence
             public string largeImageName { get; set; }
             public string largeimageText { get; set; }
             public string smallimageName { get; set; }
+            public bool autoStartChk { get; set; }
         }
         
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             if (File.Exists("settings.json"))
@@ -56,7 +56,61 @@ namespace Custom_Discord_Rich_Presence
                 textBox4.Text = details["largeImageName"];
                 textBox5.Text = details["largeimageText"];
                 textBox6.Text = details["smallimageName"];
+                checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
+                labelStatus.Text = "Status: STOPPED";
+
             }
+            if (checkBox2.Checked)
+            {
+                string json = File.ReadAllText("settings.json");
+                Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+                textBox1.Text = details["clientID"];
+                textBox2.Text = details["details"];
+                textBox3.Text = details["state"];
+                textBox4.Text = details["largeImageName"];
+                textBox5.Text = details["largeimageText"];
+                textBox6.Text = details["smallimageName"];
+                checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
+
+
+
+                client = new DiscordRpcClient(details["clientID"]);
+                isEnabled = true;
+                labelStatus.Text = "Status: RUNNING";
+                if (String.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Client ID is empty!");
+                    return;
+                }
+                client = new DiscordRpcClient(textBox1.Text);
+                // You get a client id by creating an app from https://discord.com/developers/applications/
+
+
+                //Connect to the RPC
+                client.Initialize();
+
+                //Set the rich presence
+                //Call this as many times as you want and anywhere in your code.
+                client.SetPresence(new RichPresence()
+                {
+                    Details = details["details"],
+                    State = details["state"],
+                    Assets = new Assets()
+                    {
+                        LargeImageKey = details["largeImageName"],
+                        LargeImageText = details["largeimageText"],
+                        SmallImageKey = details["smallimageName"]
+                    }
+                });
+                if (checkBox1.Checked)
+                {
+                    client.UpdateStartTime();
+                }
+                
+
+            }
+            
+           
         }
 
         private void url_Click(object sender, EventArgs e)
@@ -82,22 +136,24 @@ namespace Custom_Discord_Rich_Presence
         
         private void start_Click(object sender, EventArgs e)
         {
-                data tojson = new data
-                {
-                    clientID = textBox1.Text,
-                    details = textBox2.Text,
-                    state = textBox3.Text,
-                    largeImageName = textBox4.Text,
-                    largeimageText = textBox5.Text,
-                    smallimageName = textBox6.Text,
-                };
-                string jsontoWrite = JsonConvert.SerializeObject(tojson, Formatting.Indented);
+            data tojson = new data
+            {
+                clientID = textBox1.Text,
+                details = textBox2.Text,
+                state = textBox3.Text,
+                largeImageName = textBox4.Text,
+                largeimageText = textBox5.Text,
+                smallimageName = textBox6.Text,
+                autoStartChk = checkBox2.Checked
 
-                using (StreamWriter writer = File.CreateText("settings.json"))
-                {
-                    writer.WriteLine(jsontoWrite);
-                }
-            
+            };
+            string jsontoWrite = JsonConvert.SerializeObject(tojson, Formatting.Indented);
+
+            using (StreamWriter writer = File.CreateText("settings.json"))
+            {
+                writer.WriteLine(jsontoWrite);
+            }
+
 
             string json = File.ReadAllText("settings.json");
             Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
@@ -117,12 +173,15 @@ namespace Custom_Discord_Rich_Presence
             textBox4.Text = details["largeImageName"];
             textBox5.Text = details["largeimageText"];
             textBox6.Text = details["smallimageName"];
+            checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
             
 
+
             client = new DiscordRpcClient(details["clientID"]);
-            
-           
+
+
             isEnabled = true;
+            labelStatus.Text = "Status: RUNNING";
             if (String.IsNullOrWhiteSpace(textBox1.Text))
             {
                 MessageBox.Show("Client ID is empty!");
@@ -152,10 +211,6 @@ namespace Custom_Discord_Rich_Presence
             {
                 client.UpdateStartTime();
             }
-            
-
-
-
         }
 
         private void stop_Click(object sender, EventArgs e)
@@ -168,6 +223,7 @@ namespace Custom_Discord_Rich_Presence
             {
                 MessageBox.Show("Custom status is already disabled!");
             }
+            labelStatus.Text = "Status: STOPPED";
             isEnabled = false;
 
         }
@@ -177,10 +233,7 @@ namespace Custom_Discord_Rich_Presence
             System.Diagnostics.Process.Start("https://github.com/smashie420/Custom-Discord-Rich-Presence/blob/master/README.md");
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
    
 }
