@@ -17,6 +17,7 @@ namespace Custom_Discord_Rich_Presence
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            
         }
     }
 }
