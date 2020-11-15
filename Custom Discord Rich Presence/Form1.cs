@@ -12,6 +12,7 @@ using DiscordRPC;
 using DiscordRPC.Logging;
 using Newtonsoft.Json;
 
+
 namespace Custom_Discord_Rich_Presence
 {
     public partial class Form1 : Form
@@ -233,7 +234,15 @@ namespace Custom_Discord_Rich_Presence
             System.Diagnostics.Process.Start("https://github.com/smashie420/Custom-Discord-Rich-Presence/blob/master/README.md");
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 form2 = new Form2();
+            // This is for when form2 is closed it also closes form1
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
+        }
+        
     }
    
 }
