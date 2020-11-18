@@ -1,5 +1,6 @@
 # Custom Discord Status
 This is a simple program to set your own status on discord!
+![Demo](https://i.imgur.com/pPZAiDk.png)
 
 # Requirements
 - Some knowledge of web browsing
