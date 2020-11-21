@@ -19,5 +19,6 @@ namespace Custom_Discord_Rich_Presence
             Application.Run(new Form1());
             
         }
+
     }
 }

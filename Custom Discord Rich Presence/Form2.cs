@@ -39,11 +39,7 @@ namespace Custom_Discord_Rich_Presence
             // https://discordapp.com/api/v6/users/@me/settings", headers={"Authorization": token, "Content-Type": "application/json"}, data=status_data
             //string httpContent = @"{""Authorization"": token, ""Content-Type"": ""application/json""}, data=status_data";
 
-            var client = new HttpClient();
-            client.PatchASync();
-
-
-            /* SOMEWHAT WORKING CODE
+           
             var client = new RestClient("https://discordapp.com/api/v6/users/@me/settings");
            
             //client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
@@ -52,12 +48,12 @@ namespace Custom_Discord_Rich_Presence
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Authorization", token);
             
-            request.AddJsonBody(new { op = "replace", path = "/custom_status/", value = "'text':'AWESOMEMMSA'" });
+            request.AddJsonBody(new { op = "replace", path = "/custom_status/text", value = "'text':'AWESOMEMMSA'" });
 
             //{ "op": "replace", "path": "/a/b/c", "value": 42 },
             IRestResponse response = client.Execute(request);
             MessageBox.Show(response.Content);
-            */
+            
 
             /*
             using (var client = new HttpClient())
