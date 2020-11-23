@@ -2,7 +2,9 @@
   <img src="https://i.imgur.com/V1nlR1e.png" title="Logo">
 </p>
 
-This is a simple program to set your own status on discord!
+<p align="center">
+  <h2>This is a simple program to set your own status on discord!</h2>
+</p>
 ![Demo](https://i.imgur.com/pPZAiDk.png)
 
 # Requirements
