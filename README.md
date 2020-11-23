@@ -1,10 +1,15 @@
-<p align="center">
-  <img src="https://i.imgur.com/V1nlR1e.png" title="Logo">
-</p>
+<div align="center">
+  <p>
+    <img src="https://i.imgur.com/V1nlR1e.png" title="Logo">
+  </p>
 
-<p align="center">
-  <h2>This is a simple program to set your own status on discord!</h2>
-</p>
+  <p style="text-align: center;">
+    <h2>This is a simple program to set your own status on discord!</h2>
+  </p>
+  
+</div>
+
+
 ![Demo](https://i.imgur.com/pPZAiDk.png)
 
 # Requirements
