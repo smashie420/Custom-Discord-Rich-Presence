@@ -1,4 +1,7 @@
-![Logo](https://i.imgur.com/V1nlR1e.png)
+<p align="center">
+  <img src="https://i.imgur.com/V1nlR1e.png" title="Logo">
+</p>
+
 This is a simple program to set your own status on discord!
 ![Demo](https://i.imgur.com/pPZAiDk.png)
 
