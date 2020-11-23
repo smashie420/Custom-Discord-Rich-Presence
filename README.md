@@ -15,7 +15,7 @@
 # Requirements
 - A brain
 
-# Steps
+# Custom Status Steps
 - [Create an application](https://discord.com/developers/applications)
 - Give it a name
 ![Give it a name](https://i.imgur.com/xD2b1tU.png)
@@ -25,3 +25,8 @@
 ![Copy ClientID & paste](https://i.imgur.com/MXckkyp.png)
 - Fill in the rest
 ![Fill in details](https://i.imgur.com/CzrIQVI.png)
+
+# Animated Status Steps
+- ![Sign into discord](https://discord.com/channels/@me)
+- ![Get User Token] (https://youtu.be/pSI9MuovDzQ)
+- Enter User Token into the app then fill in the rest
