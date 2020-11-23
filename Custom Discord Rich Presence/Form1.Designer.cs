@@ -67,7 +67,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(129, 96);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 20);
+            this.textBox1.Size = new System.Drawing.Size(191, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -76,7 +76,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(129, 119);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 20);
+            this.textBox2.Size = new System.Drawing.Size(191, 20);
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -96,7 +96,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox3.Location = new System.Drawing.Point(129, 145);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(205, 20);
+            this.textBox3.Size = new System.Drawing.Size(191, 20);
             this.textBox3.TabIndex = 5;
             // 
             // state
@@ -114,7 +114,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Location = new System.Drawing.Point(129, 171);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(205, 20);
+            this.textBox4.Size = new System.Drawing.Size(191, 20);
             this.textBox4.TabIndex = 7;
             // 
             // label1
@@ -132,7 +132,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox5.Location = new System.Drawing.Point(129, 197);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(205, 20);
+            this.textBox5.Size = new System.Drawing.Size(191, 20);
             this.textBox5.TabIndex = 9;
             // 
             // label2
@@ -150,7 +150,7 @@ namespace Custom_Discord_Rich_Presence
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox6.Location = new System.Drawing.Point(129, 223);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(205, 20);
+            this.textBox6.Size = new System.Drawing.Size(191, 20);
             this.textBox6.TabIndex = 11;
             // 
             // label3
@@ -168,7 +168,7 @@ namespace Custom_Discord_Rich_Presence
             this.start.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.start.Location = new System.Drawing.Point(0, 430);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(361, 65);
+            this.start.Size = new System.Drawing.Size(347, 65);
             this.start.TabIndex = 12;
             this.start.Text = "Start";
             this.start.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@ namespace Custom_Discord_Rich_Presence
             this.stop.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.stop.Location = new System.Drawing.Point(0, 365);
             this.stop.Name = "stop";
-            this.stop.Size = new System.Drawing.Size(361, 65);
+            this.stop.Size = new System.Drawing.Size(347, 65);
             this.stop.TabIndex = 13;
             this.stop.Text = "Stop";
             this.stop.UseVisualStyleBackColor = true;
@@ -235,7 +235,7 @@ namespace Custom_Discord_Rich_Presence
             this.button1.Dock = System.Windows.Forms.DockStyle.Top;
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(361, 51);
+            this.button1.Size = new System.Drawing.Size(347, 51);
             this.button1.TabIndex = 18;
             this.button1.Text = "Animated Status";
             this.button1.UseVisualStyleBackColor = true;
@@ -246,7 +246,7 @@ namespace Custom_Discord_Rich_Presence
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(361, 495);
+            this.ClientSize = new System.Drawing.Size(347, 495);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.checkBox2);
@@ -271,7 +271,7 @@ namespace Custom_Discord_Rich_Presence
             this.MinimumSize = new System.Drawing.Size(363, 350);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cusotm Discord Status";
+            this.Text = "Custom Discord Status";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

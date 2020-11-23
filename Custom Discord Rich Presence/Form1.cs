@@ -236,6 +236,7 @@ namespace Custom_Discord_Rich_Presence
 
         private void button1_Click(object sender, EventArgs e)
         {
+            isEnabled = false;
             this.Hide();
             Form2 form2 = new Form2();
             // This is for when form2 is closed it also closes form1
