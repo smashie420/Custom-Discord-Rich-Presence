@@ -27,6 +27,6 @@
 ![Fill in details](https://i.imgur.com/CzrIQVI.png)
 
 # Animated Status Steps
-- ![Sign into discord](https://discord.com/channels/@me)
+- [Sign into discord](https://discord.com/channels/@me)
 - ![Get User Token] (https://youtu.be/pSI9MuovDzQ)
 - Enter User Token into the app then fill in the rest
