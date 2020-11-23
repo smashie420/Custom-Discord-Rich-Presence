@@ -160,7 +160,7 @@ namespace Custom_Discord_Rich_Presence
         
         private void start_Click(object sender, EventArgs e)
         {
-
+            if (isEnabled) { return; }
             //string jsonstuff = "{\"Custom Status\": [{\"clientID\": \"{0}\",\"details\": \"{1}\",\"state\": \"{2}\",\"largeImageName\": \"{3}\",\"largeimageText\": \"{4}\",\"smallimageName\": \"{5}\",\"autoStartChk\": \"{6}\"}],\"Animated Status\":[{\"userID\": \"\",\"animation\": \"\",\"delay\": \"\"}]}";
 
             //MessageBox.Show(String.Format("{\"Custom Status\": [{\"clientID\": \"{0}\",\"details\": \"{1}\",\"state\": \"{2}\",\"largeImageName\": \"{3}\",\"largeimageText\": \"{4}\",\"smallimageName\": \"{5}\",\"autoStartChk\": \"{6}\"}],\"Animated Status\":[{\"userID\": \"\",\"animation\": \"\",\"delay\": \"\"}]}", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox2.Checked.ToString()));
@@ -184,49 +184,6 @@ namespace Custom_Discord_Rich_Presence
                 textBox6.Text = (string)row["smallimageName"];
                 checkBox2.Checked = (bool)Convert.ToBoolean(row["autoStartChk"]);
             }
-
-            
-            /*
-            data tojson = new data
-            {
-                clientID = textBox1.Text,
-                details = textBox2.Text,
-                state = textBox3.Text,
-                largeImageName = textBox4.Text,
-                largeimageText = textBox5.Text,
-                smallimageName = textBox6.Text,
-                autoStartChk = checkBox2.Checked
-
-            };
-            string jsontoWrite = JsonConvert.SerializeObject(tojson, Formatting.Indented);
-
-            using (StreamWriter writer = File.CreateText("settings.json"))
-            {
-                writer.WriteLine(jsontoWrite);
-            }*/
-
-
-            //string json = File.ReadAllText("settings.json");
-            //Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-            /*
-            var clientID1 = details["clientID"]);
-            var details1 = details["details"]);
-            var state1 = details["state"]);
-            var largeImageName1 = details["largeImageName"]);
-            var largeimageText1 = details["largeimageText"]);
-            var smallimageName1 = details["smallimageName"]);*/
-            // /account/login.aspx
-
-            /*
-            textBox1.Text = details["clientID"];
-            textBox2.Text = details["details"];
-            textBox3.Text = details["state"];
-            textBox4.Text = details["largeImageName"];
-            textBox5.Text = details["largeimageText"];
-            textBox6.Text = details["smallimageName"];
-            checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
-            */
-
 
             client = new DiscordRpcClient(textBox1.Text);
 
