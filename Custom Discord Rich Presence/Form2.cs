@@ -115,9 +115,9 @@ namespace Custom_Discord_Rich_Presence
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            if (File.Exists("settings.json"))
+            if (File.Exists("settings_animation.json"))
             {
-                string json = File.ReadAllText("settings.json");
+                string json = File.ReadAllText("settings_animation.json");
                 Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                 /*
                 var clientID1 = details["clientID"]);
@@ -155,7 +155,7 @@ namespace Custom_Discord_Rich_Presence
             };
             string jsontoWrite = JsonConvert.SerializeObject(tojson, Formatting.Indented);
 
-            using (StreamWriter writer = File.AppendText("settings.json"))
+            using (StreamWriter writer = File.CreateText("settings_animation.json"))
             {
                 writer.WriteLine(jsontoWrite);
             }

@@ -39,6 +39,24 @@ namespace Custom_Discord_Rich_Presence
         {
             if (File.Exists("settings.json"))
             {
+
+                if (!File.Exists("settings.json")) { return; }
+                var json = File.ReadAllText("settings.json");
+
+                DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+                DataTable dataSettings = dataSet.Tables["Custom Status"];
+                foreach (DataRow row in dataSettings.Rows)
+                {
+                    textBox1.Text = (string)row["clientID"];
+                    textBox2.Text = (string)row["details"];
+                    textBox3.Text = (string)row["state"];
+                    textBox4.Text = (string)row["largeImageName"];
+                    textBox5.Text = (string)row["largeimageText"];
+                    textBox6.Text = (string)row["smallimageName"];
+                    checkBox2.Checked = (bool)Convert.ToBoolean(row["autoStartChk"]);
+                }
+
+                /*
                 string json = File.ReadAllText("settings.json");
                 Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
                 /*
@@ -50,7 +68,7 @@ namespace Custom_Discord_Rich_Presence
                 var smallimageName1 = details["smallimageName"]);*/
                 // /account/login.aspx
 
-
+                /*
                 textBox1.Text = details["clientID"];
                 textBox2.Text = details["details"];
                 textBox3.Text = details["state"];
@@ -59,23 +77,28 @@ namespace Custom_Discord_Rich_Presence
                 textBox6.Text = details["smallimageName"];
                 checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
                 labelStatus.Text = "Status: STOPPED";
-
+                */
             }
             if (checkBox2.Checked)
             {
-                string json = File.ReadAllText("settings.json");
-                Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
-                textBox1.Text = details["clientID"];
-                textBox2.Text = details["details"];
-                textBox3.Text = details["state"];
-                textBox4.Text = details["largeImageName"];
-                textBox5.Text = details["largeimageText"];
-                textBox6.Text = details["smallimageName"];
-                checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
+                var json = File.ReadAllText("settings.json");
+
+                DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+                DataTable dataSettings = dataSet.Tables["Custom Status"];
+                foreach (DataRow row in dataSettings.Rows)
+                {
+                    textBox1.Text = (string)row["clientID"];
+                    textBox2.Text = (string)row["details"];
+                    textBox3.Text = (string)row["state"];
+                    textBox4.Text = (string)row["largeImageName"];
+                    textBox5.Text = (string)row["largeimageText"];
+                    textBox6.Text = (string)row["smallimageName"];
+                    checkBox2.Checked = (bool)Convert.ToBoolean(row["autoStartChk"]);
+                }
 
 
 
-                client = new DiscordRpcClient(details["clientID"]);
+                client = new DiscordRpcClient(textBox1.Text.ToString());
                 isEnabled = true;
                 labelStatus.Text = "Status: RUNNING";
                 if (String.IsNullOrWhiteSpace(textBox1.Text))
@@ -94,13 +117,13 @@ namespace Custom_Discord_Rich_Presence
                 //Call this as many times as you want and anywhere in your code.
                 client.SetPresence(new RichPresence()
                 {
-                    Details = details["details"],
-                    State = details["state"],
+                    Details = textBox2.Text.ToString(),
+                    State = textBox3.Text.ToString(),
                     Assets = new Assets()
                     {
-                        LargeImageKey = details["largeImageName"],
-                        LargeImageText = details["largeimageText"],
-                        SmallImageKey = details["smallimageName"]
+                        LargeImageKey = textBox4.Text.ToString(),
+                        LargeImageText = textBox5.Text.ToString(),
+                        SmallImageKey = textBox6.Text.ToString()
                     }
                 });
                 if (checkBox1.Checked)
@@ -137,6 +160,33 @@ namespace Custom_Discord_Rich_Presence
         
         private void start_Click(object sender, EventArgs e)
         {
+
+            //string jsonstuff = "{\"Custom Status\": [{\"clientID\": \"{0}\",\"details\": \"{1}\",\"state\": \"{2}\",\"largeImageName\": \"{3}\",\"largeimageText\": \"{4}\",\"smallimageName\": \"{5}\",\"autoStartChk\": \"{6}\"}],\"Animated Status\":[{\"userID\": \"\",\"animation\": \"\",\"delay\": \"\"}]}";
+
+            //MessageBox.Show(String.Format("{\"Custom Status\": [{\"clientID\": \"{0}\",\"details\": \"{1}\",\"state\": \"{2}\",\"largeImageName\": \"{3}\",\"largeimageText\": \"{4}\",\"smallimageName\": \"{5}\",\"autoStartChk\": \"{6}\"}],\"Animated Status\":[{\"userID\": \"\",\"animation\": \"\",\"delay\": \"\"}]}", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox2.Checked.ToString()));
+            
+            using (StreamWriter writer = File.CreateText("settings.json"))
+            {
+                writer.WriteLine(String.Format("{{ \"Custom Status\": [ {{\"clientID\": \"{0}\",\"details\": \"{1}\",\"state\": \"{2}\",\"largeImageName\": \"{3}\",\"largeimageText\": \"{4}\",\"smallimageName\": \"{5}\",\"autoStartChk\": \"{6}\"}}],\"Animated Status\":[{{\"userID\": \"\",\"animation\": \"\",\"delay\": \"\"}}]}}", textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, checkBox2.Checked.ToString()));
+            }
+
+            var json = File.ReadAllText("settings.json");
+
+            DataSet dataSet = JsonConvert.DeserializeObject<DataSet>(json);
+            DataTable dataSettings = dataSet.Tables["Custom Status"];
+            foreach (DataRow row in dataSettings.Rows)
+            {
+                textBox1.Text = (string)row["clientID"];
+                textBox2.Text = (string)row["details"];
+                textBox3.Text = (string)row["state"];
+                textBox4.Text = (string)row["largeImageName"];
+                textBox5.Text = (string)row["largeimageText"];
+                textBox6.Text = (string)row["smallimageName"];
+                checkBox2.Checked = (bool)Convert.ToBoolean(row["autoStartChk"]);
+            }
+
+            
+            /*
             data tojson = new data
             {
                 clientID = textBox1.Text,
@@ -153,11 +203,11 @@ namespace Custom_Discord_Rich_Presence
             using (StreamWriter writer = File.CreateText("settings.json"))
             {
                 writer.WriteLine(jsontoWrite);
-            }
+            }*/
 
 
-            string json = File.ReadAllText("settings.json");
-            Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
+            //string json = File.ReadAllText("settings.json");
+            //Dictionary<string, string> details = JsonConvert.DeserializeObject<Dictionary<string, string>>(json);
             /*
             var clientID1 = details["clientID"]);
             var details1 = details["details"]);
@@ -167,7 +217,7 @@ namespace Custom_Discord_Rich_Presence
             var smallimageName1 = details["smallimageName"]);*/
             // /account/login.aspx
 
-
+            /*
             textBox1.Text = details["clientID"];
             textBox2.Text = details["details"];
             textBox3.Text = details["state"];
@@ -175,10 +225,10 @@ namespace Custom_Discord_Rich_Presence
             textBox5.Text = details["largeimageText"];
             textBox6.Text = details["smallimageName"];
             checkBox2.Checked = Convert.ToBoolean(details["autoStartChk"]);
-            
+            */
 
 
-            client = new DiscordRpcClient(details["clientID"]);
+            client = new DiscordRpcClient(textBox1.Text);
 
 
             isEnabled = true;
@@ -194,18 +244,18 @@ namespace Custom_Discord_Rich_Presence
 
             //Connect to the RPC
             client.Initialize();
-
+           
             //Set the rich presence
             //Call this as many times as you want and anywhere in your code.
             client.SetPresence(new RichPresence()
             {
-                Details = details["details"],
-                State = details["state"],
+                Details = textBox2.Text,
+                State = textBox3.Text,
                 Assets = new Assets()
                 {
-                    LargeImageKey = details["largeImageName"],
-                    LargeImageText = details["largeimageText"],
-                    SmallImageKey = details["smallimageName"]
+                    LargeImageKey = textBox4.Text,
+                    LargeImageText = textBox5.Text,
+                    SmallImageKey = textBox6.Text
                 }
             });
             if (checkBox1.Checked)
