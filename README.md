@@ -1,4 +1,4 @@
-# Custom Discord Status
+![Logo](https://i.imgur.com/V1nlR1e.png)
 This is a simple program to set your own status on discord!
 ![Demo](https://i.imgur.com/pPZAiDk.png)
 
