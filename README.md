@@ -16,6 +16,9 @@
 # Requirements
 - A brain
 
+# Precautions
+- Discord has an automatic system to check if someone (you) is using your uer token. They will send an email asking to reset your passcode, this will regenerate a new user token be sure to get it again
+
 # Custom Status Steps
 - [Create an application](https://discord.com/developers/applications)
 - Give it a name
