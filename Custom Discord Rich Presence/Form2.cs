@@ -194,5 +194,15 @@ namespace Custom_Discord_Rich_Presence
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://youtu.be/pSI9MuovDzQ");
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
