@@ -32,5 +32,5 @@
 
 # Animated Status Steps
 - [Sign into discord](https://discord.com/channels/@me)
-- [Get User Token](https://youtu.be/pSI9MuovDzQ)
+- [Get User Token](https://youtu.be/utTQfcuRBqU)
 - Enter User Token into the app then fill in the rest
