@@ -8,7 +8,8 @@
   </p>
   
   <p>
-    <img src="https://i.imgur.com/pPZAiDk.png" title="Example">
+    <img src="https://i.imgur.com/pPZAiDk.png" title="Status Example">
+    <img src="https://i.imgur.com/uMdSCFT.gif" title="Animation Example">
   </p>
 </div>
 
